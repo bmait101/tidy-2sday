@@ -1,0 +1,33 @@
+---
+title: "Global Surface Temperatures"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+Source of original design: <https://earthobservatory.nasa.gov/world-of-change/global-temperatures#:~:text=According%20to%20an%20ongoing%20temperature,1.9%C2%B0%20Fahrenheit)%20since%201880.>
+
+Source of data: [NASA GISS Surface Temperature Analysis (GISTEMP v4)](https://data.giss.nasa.gov/gistemp/)
+
+```{r message=FALSE,warning=FALSE}
+library(tidyverse)
+tuesdata <- tidytuesdayR::tt_load(2023, week = 28)
+```
+
+
+
+```{r}
+tuesdata$global_temps%>%head
+```
+
+### Global Temperature Anomalies
+
+Anomalies are calculated with respect to the 1951-1980 climatology. 
+
+Global Temperatures are in C° degrees, what we see here is the difference in temperature as a result of an application of a model to estimate the mean difference in temperatures with respect to 1951-1980 time-frame. 
+
+
+```{r}
+global_temps <- tuesdata$global_temps
+global_temps%>%select(1:13)%>%summary()
+```
