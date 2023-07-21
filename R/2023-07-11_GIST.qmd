@@ -9,7 +9,9 @@ Source of original design: <https://earthobservatory.nasa.gov/world-of-change/gl
 
 Source of data: [NASA GISS Surface Temperature Analysis (GISTEMP v4)](https://data.giss.nasa.gov/gistemp/)
 
-```{r message=FALSE,warning=FALSE}
+```{r}
+#| message: false
+#| warning: false
 library(tidyverse)
 tuesdata <- tidytuesdayR::tt_load(2023, week = 28)
 ```
